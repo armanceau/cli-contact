@@ -18,7 +18,7 @@ Permet d’ajouter, lister, supprimer et mettre à jour des contacts directement
 1. Cloner le repository :
 
 ```bash
-git clone https://github.com/armanceau/cli_contact.git
+git clone https://github.com/armanceau/cli-contact.git
 cd cli-contact
 ```
 
