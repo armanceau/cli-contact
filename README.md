@@ -52,7 +52,6 @@ go run main.go -nom "Arthur" -email "arthur@mail.com"
 ## Tests
 _Des tests unitaires sont inclus pour vérifier l’ajout, la suppression et la mise à jour des contacts._
 
-Lancer le projet à l'aide des flags : 
 ```bash
 go test
 ```
