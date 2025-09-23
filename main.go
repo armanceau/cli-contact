@@ -69,19 +69,25 @@ func menu() {
 
 }
 
+func New(ID int, Nom string, Email string) Contact {
+	contact := Contact{ID, Nom, Email}
+	return contact
+}
+
 func ajouterContact(reader *bufio.Reader) {
 	fmt.Print("Nom : ")
 	nom, _ := reader.ReadString('\n')
 	fmt.Print("Email : ")
 	email, _ := reader.ReadString('\n')
 
-	contact := Contact{
-		ID:    nextID,
-		Nom:   nom,
-		Email: email,
-	}
-	contacts[nextID] = contact
-	fmt.Println("Contact ajouté ✅ : \n", contact.ID, contact.Nom, contact.Email)
+	c := New(nextID, nom, email)
+
+	c.ajouterContact()
+}
+
+func (c Contact) ajouterContact() {
+	contacts[c.ID] = c
+	fmt.Println("Contact ajouté ✅ :", c.ID, c.Nom, c.Email)
 	nextID++
 }
 
@@ -90,8 +96,12 @@ func listeContacts() {
 		fmt.Println("Aucun contact trouvé ❌")
 	}
 	for _, c := range contacts {
-		fmt.Printf("[%d] %s - %s\n", c.ID, c.Nom, c.Email)
+		c.afficherContact()
 	}
+}
+
+func (c Contact) afficherContact() {
+	fmt.Printf("[%d] %s - %s\n", c.ID, c.Nom, c.Email)
 }
 
 func supprimerContact(reader *bufio.Reader) {
